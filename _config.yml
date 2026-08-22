@@ -14,3 +14,20 @@ exclude:
   - README.md
   - .gitignore
   - LICENSE
+
+navigation:
+  - title: 首页
+    url: /
+    icon: 🏠
+  - title: 关于罗马维基
+    url: /about/
+    icon: 📜
+  - title: 罗马历史
+    url: /rome-history/
+    icon: 🏛️
+  - title: 罗马法
+    url: /roman-law/
+    icon: ⚖️
+  - title: 拉丁语
+    url: /latin-language/
+    icon: 📚
