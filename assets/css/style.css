@@ -1,4 +1,4 @@
-/* 全局重置 & 字体 */
+/* ===== 全局重置 & 罗马风格变量 ===== */
 * {
   margin: 0;
   padding: 0;
@@ -6,36 +6,35 @@
 }
 
 body {
-  font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
-  background: #f6f8fa;
-  color: #1e293b;
-  line-height: 1.6;
+  font-family: 'Georgia', 'Times New Roman', 'Palatino Linotype', serif;
+  background: #ede7db;  /* 莎草纸底色 */
+  color: #3b2e24;
+  line-height: 1.7;
   min-height: 100vh;
 }
 
 /* ---- 整体网格容器 ---- */
 .wiki-grid {
   display: grid;
-  grid-template-columns: 280px 1fr;      /* 侧边栏固定宽度，正文自适应 */
-  grid-template-rows: 64px 1fr;           /* 标题栏固定高度，正文占剩余 */
-  height: 100vh;                         /* 固定视口高度，防止整体滚动 */
-  overflow: hidden;                     /* 防止网格溢出 */
+  grid-template-columns: 280px 1fr;
+  grid-template-rows: 68px 1fr;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* ---- 标题栏 (固定于顶部) ---- */
+/* ---- 标题栏 (罗马风格) ---- */
 .header {
-  grid-column: 1 / -1;                  /* 跨两列 */
+  grid-column: 1 / -1;
   grid-row: 1 / 2;
-  background: #bd4338;
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  background: #8b2f1c;  /* 罗马红棕 */
+  border-bottom: 3px solid #b78a5c;
+  box-shadow: 0 4px 12px rgba(60, 30, 20, 0.3);
   display: flex;
   align-items: center;
-  justify-content: space-between;      /* 左右分布 */
+  justify-content: space-between;
   padding: 0 28px;
   z-index: 10;
   position: relative;
-  gap: 12px;
 }
 
 .header-left {
@@ -46,51 +45,50 @@ body {
 }
 
 .header h1 {
-  font-size: 1.6rem;
-  font-weight: 500;
-  letter-spacing: -0.3px;
-  /*background: linear-gradient(145deg, #0b3b5c, #1a5a7a);*/
-  background: linear-gradient(145deg, white);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #f5e6c4;
+  text-shadow: 2px 2px 0 #4a1e12, 1px 1px 0 #2f140b;
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: 'Palatino Linotype', 'Georgia', serif;
 }
 
 .header h1 small {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 400;
-  color: #64748b;
-  background: #f1f5f9;
+  color: #d4b48c;
+  background: #5f2618;
   padding: 0 14px;
-  border-radius: 40px;
-  -webkit-text-fill-color: #334155;
-  background-clip: unset;
-  background: #f1f5f9;
-  letter-spacing: 0.3px;
+  border-radius: 30px;
+  letter-spacing: 0.5px;
+  border: 1px solid #b78a5c;
+  text-shadow: none;
+  font-family: 'Georgia', serif;
 }
 
-/* ---- 中间文字 (flex: 1 居中) ---- */
+/* ---- 中间标语 (希腊文) 罗马风格 ---- */
 .header-center {
   flex: 1;
   text-align: center;
-  font-size: 20px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #1e3a5f;
-  background: #f1f5f9;
-  padding: 4px 18px;
+  font-size: 1.1rem;
+  color: #f5e6c4;
+  background: #6f2a1a;
+  padding: 6px 20px;
   border-radius: 40px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 480px;
-  margin: 0 12px;
-  font-weight: 450;
-  letter-spacing: 0.2px;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
-  border: 1px solid #e9edf2;
+  margin: 0 16px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  border: 1px solid #b78a5c;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+  font-family: 'Palatino Linotype', 'Georgia', serif;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 
 .header-center span {
@@ -98,51 +96,284 @@ body {
   vertical-align: middle;
 }
 
-/* ---- 右侧按钮 ---- */
+/* ---- 右侧按钮 (罗马风格) ---- */
 .header-right {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .btn-wiki {
-  background: #eef2f6;
-  border: 1px solid #d0d9e3;
-  color: #1e293b;
-  padding: 6px 18px;
-  border-radius: 40px;
+  background: #b78a5c;
+  border: 1px solid #dbb68c;
+  color: #2e1c12;
+  padding: 6px 20px;
+  border-radius: 30px;
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: default;
-  transition: background 0.15s, border-color 0.15s;
-  letter-spacing: 0.3px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: #ffffff;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  font-family: 'Palatino Linotype', 'Georgia', serif;
+  text-transform: uppercase;
+  background: #dbb68c;
+  border-color: #e6caa8;
+  color: #3b2a1a;
 }
 
 .btn-wiki:hover {
-  background: #e6edf5;
-  border-color: #b6cae0;
+  background: #e6caa8;
+  border-color: #f0ddc0;
+  transform: scale(1.02);
 }
 
 .btn-wiki:active {
-  background: #d4e2f0;
+  transform: scale(0.97);
 }
 
 .btn-wiki i {
   font-style: normal;
-  opacity: 0.7;
+  opacity: 0.8;
+  margin-right: 4px;
 }
 
-/* 响应式调整 */
+.btn-wiki.primary {
+  background: #8b2f1c;
+  border-color: #b78a5c;
+  color: #f5e6c4;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.btn-wiki.primary:hover {
+  background: #a53d26;
+  border-color: #dbb68c;
+  color: #fff3e0;
+}
+
+/* ---- 侧边栏 (罗马风格) ---- */
+.sidebar {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background: #dac8b0;  /* 暖灰底色 */
+  border-right: 2px solid #b78a5c;
+  padding: 24px 16px;
+  overflow-y: auto;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  box-shadow: 4px 0 16px rgba(60, 40, 20, 0.15);
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: #c6b098;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: #8b5f3e;
+  border-radius: 20px;
+  border: 1px solid #b78a5c;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar-nav .nav-section {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #5a3f2a;
+  padding: 14px 8px 6px 8px;
+  font-weight: 700;
+  border-bottom: 1px solid #b78a5c;
+  margin-bottom: 8px;
+  font-family: 'Palatino Linotype', 'Georgia', serif;
+  text-shadow: 0 1px 1px rgba(255, 215, 175, 0.3);
+}
+
+.sidebar-nav a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: #3b2a1a;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  font-size: 0.95rem;
+  border-left: 3px solid transparent;
+  font-family: 'Georgia', serif;
+}
+
+.sidebar-nav a:hover {
+  background: #b78a5c;
+  color: #f5e6c4;
+  border-left: 3px solid #5a3f2a;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar-nav a.active {
+  background: #8b2f1c;
+  color: #f5e6c4;
+  border-left: 3px solid #dbb68c;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(80, 30, 10, 0.3);
+}
+
+.sidebar-nav a i {
+  display: inline-block;
+  width: 24px;
+  opacity: 0.8;
+}
+
+.sidebar-footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid #b78a5c;
+  font-size: 0.7rem;
+  color: #5a3f2a;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 0.3px;
+}
+
+/* ---- 正文区域 (罗马风格) ---- */
+.main-content {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background: #f7f0e6;  /* 羊皮纸色 */
+  padding: 36px 44px 60px 44px;
+  overflow-y: auto;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+.main-content::-webkit-scrollbar {
+  width: 7px;
+}
+.main-content::-webkit-scrollbar-track {
+  background: #e2d5c4;
+}
+.main-content::-webkit-scrollbar-thumb {
+  background: #8b5f3e;
+  border-radius: 20px;
+  border: 1px solid #b78a5c;
+}
+
+.main-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #b78a5c;
+  padding-bottom: 10px;
+  margin-top: 28px;
+  margin-bottom: 22px;
+  color: #5a2f1a;
+  font-family: 'Palatino Linotype', 'Georgia', serif;
+  text-shadow: 1px 1px 0 rgba(255, 215, 175, 0.4);
+}
+
+.main-content h2:first-of-type {
+  margin-top: 0;
+}
+
+.main-content h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: #6f3a22;
+  font-family: 'Palatino Linotype', 'Georgia', serif;
+  letter-spacing: 0.3px;
+}
+
+.main-content p {
+  margin-bottom: 18px;
+  color: #3b2e24;
+}
+
+.main-content .wiki-meta {
+  background: #dac8b0;
+  padding: 14px 22px;
+  border-radius: 12px;
+  border-left: 6px solid #8b2f1c;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  color: #3b2a1a;
+  box-shadow: inset 0 1px 6px rgba(0,0,0,0.06);
+}
+
+.main-content ul, .main-content ol {
+  padding-left: 28px;
+  margin-bottom: 20px;
+}
+
+.main-content li {
+  margin-bottom: 6px;
+}
+
+.main-content code {
+  background: #dac8b0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-family: 'Courier New', monospace;
+  color: #5a2f1a;
+  border: 1px solid #b78a5c;
+}
+
+.main-content .toc {
+  background: #ede7db;
+  border: 1px solid #b78a5c;
+  border-radius: 16px;
+  padding: 18px 26px;
+  margin: 20px 0 28px 0;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(60, 40, 20, 0.08);
+}
+
+.main-content .toc strong {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #5a3f2a;
+  margin-bottom: 6px;
+  font-family: 'Palatino Linotype', 'Georgia', serif;
+}
+
+.main-content .toc ul {
+  margin-bottom: 0;
+}
+
+.blockquote-wiki {
+  background: #ede7db;
+  padding: 14px 24px;
+  border-radius: 12px;
+  border-left: 6px solid #8b2f1c;
+  margin: 20px 0;
+  font-style: italic;
+  color: #3b2a1a;
+  font-size: 0.98rem;
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.04);
+}
+
+.main-content hr {
+  border: 0;
+  border-top: 2px dotted #b78a5c;
+  margin: 36px 0;
+}
+
+/* ---- 响应式 ---- */
 @media (max-width: 780px) {
   .wiki-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: 64px 1fr;
+    grid-template-rows: 68px 1fr;
   }
   .sidebar {
     display: none;
@@ -160,13 +391,14 @@ body {
   }
   .header-center {
     max-width: 160px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     padding: 4px 12px;
     margin: 0 8px;
+    letter-spacing: 0.4px;
   }
   .btn-wiki {
-    padding: 4px 14px;
-    font-size: 0.8rem;
+    padding: 4px 12px;
+    font-size: 0.7rem;
   }
   .header h1 {
     font-size: 1.3rem;
@@ -177,220 +409,56 @@ body {
   .header-center {
     max-width: 100px;
     font-size: 0.7rem;
-    padding: 2px 10px;
+    padding: 2px 8px;
+    letter-spacing: 0.2px;
   }
   .btn-wiki {
-    padding: 4px 10px;
-    font-size: 0.7rem;
+    padding: 3px 10px;
+    font-size: 0.6rem;
   }
   .header h1 {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
   }
   .header {
-    gap: 6px;
+    gap: 4px;
     padding: 0 10px;
   }
-}
-
-/* ---- 侧边栏 ---- */
-.sidebar {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  background: #b8908d;
-  border-right: 1px solid #e2e8f0;
-  padding: 24px 16px;
-  overflow-y: auto;
-  height: 100%;
-  position: relative;
-  z-index: 5;
-  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.02);
-}
-
-.sidebar::-webkit-scrollbar {
-  width: 4px;
-}
-.sidebar::-webkit-scrollbar-track {
-  background: #eef2f6;
-}
-.sidebar::-webkit-scrollbar-thumb {
-  background: #b9c7d9;
-  border-radius: 20px;
-}
-
-.sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.sidebar-nav .nav-section {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #64748b;
-  padding: 12px 8px 6px 8px;
-  font-weight: 600;
-  border-bottom: 1px solid #e9edf2;
-  margin-bottom: 6px;
-}
-
-.sidebar-nav a {
-  display: block;
-  padding: 8px 12px;
-  border-radius: 8px;
-  color: #1e293b;
-  text-decoration: none;
-  font-weight: 450;
-  transition: background 0.15s, color 0.15s;
-  font-size: 0.95rem;
-}
-
-.sidebar-nav a:hover {
-  background: #e6edf5;
-  color: #0b3b5c;
-}
-
-.sidebar-nav a.active {
-  background: #d4e2f0;
-  color: #0b3b5c;
-  font-weight: 500;
-  box-shadow: inset 0 0 0 1px #b6cae0;
-}
-
-.sidebar-nav a i {
-  display: inline-block;
-  width: 22px;
-  opacity: 0.7;
-}
-
-.sidebar-footer {
-  margin-top: 32px;
-  padding-top: 16px;
-  border-top: 1px solid #e2e8f0;
-  font-size: 0.75rem;
-  color: #94a3b8;
-  text-align: center;
-}
-
-/* ---- 正文区域 ---- */
-.main-content {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  background: #ffffff;
-  padding: 32px 40px 60px 40px;
-  overflow-y: auto;
-  height: 100%;
-  scroll-behavior: smooth;
-}
-
-.main-content::-webkit-scrollbar {
-  width: 6px;
-}
-.main-content::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-.main-content::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 20px;
-}
-
-.main-content h2 {
-  font-size: 1.9rem;
-  font-weight: 500;
-  letter-spacing: -0.3px;
-  border-bottom: 1px solid #e2e8f0;
-  padding-bottom: 10px;
-  margin-top: 28px;
-  margin-bottom: 20px;
-  color: #0b3b5c;
-}
-
-.main-content h2:first-of-type {
-  margin-top: 0;
-}
-
-.main-content h3 {
-  font-size: 1.35rem;
-  font-weight: 500;
-  margin-top: 28px;
-  margin-bottom: 12px;
-  color: #1e3a5f;
-}
-
-.main-content p {
-  margin-bottom: 16px;
-  color: #1e293b;
-}
-
-.main-content .wiki-meta {
-  background: #f1f5f9;
-  padding: 14px 20px;
-  border-radius: 14px;
-  border-left: 4px solid #3b7a9e;
-  margin: 24px 0;
-  font-size: 0.95rem;
-  color: #1e3a5f;
-}
-
-.main-content ul, .main-content ol {
-  padding-left: 28px;
-  margin-bottom: 20px;
-}
-
-.main-content li {
-  margin-bottom: 6px;
-}
-
-.main-content code {
-  background: #eef2f6;
-  padding: 0.2rem 0.5rem;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-family: 'Fira Code', monospace;
-  color: #1a4b6d;
-}
-
-.main-content .toc {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 18px 24px;
-  margin: 20px 0 28px 0;
-  display: inline-block;
-}
-
-.main-content .toc strong {
-  display: block;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #475569;
-  margin-bottom: 6px;
-}
-
-.main-content .toc ul {
-  margin-bottom: 0;
-}
-
-.blockquote-wiki {
-  background: #f1f5f9;
-  padding: 12px 20px;
-  border-radius: 12px;
-  border-left: 4px solid #7a9bb5;
-  margin: 20px 0;
-  font-style: italic;
-  color: #1e3a5f;
-}
-
-.main-content hr {
-  border: 0;
-  border-top: 1px dashed #d4dfe9;
-  margin: 32px 0;
-}
-
-/* 小屏额外优化 */
-@media (max-width: 600px) {
-  .main-content {
-    padding: 20px 16px 40px 16px;
+  .header h1 small {
+    display: none;
   }
+}
+
+/* 额外罗马装饰 */
+.header::after {
+  content: "⚔️";
+  position: absolute;
+  right: 100px;
+  top: 10px;
+  font-size: 1.8rem;
+  opacity: 0.2;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+@media (max-width: 780px) {
+  .header::after {
+    display: none;
+  }
+}
+
+/* 侧边栏罗马卷轴装饰 */
+.sidebar-nav a::before {
+  content: "▸ ";
+  opacity: 0.4;
+  font-size: 0.8rem;
+}
+
+.sidebar-nav a.active::before {
+  content: "▶ ";
+  opacity: 1;
+  color: #dbb68c;
+}
+
+.sidebar-nav a:hover::before {
+  opacity: 0.9;
 }
