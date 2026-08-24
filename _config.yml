@@ -1,0 +1,33 @@
+# _config.yml
+title: 罗马维基
+description: 固定布局的罗马风格维基
+baseurl: ""  # 如果部署到子目录，如 /blog，则填写 "/blog"
+url: "https://gensokyocirno.github.io"  # 你的 GitHub Pages 地址
+
+# 主题设置（这里我们使用自定义主题）
+theme: null
+markdown: kramdown
+highlighter: rouge
+
+# 排除文件
+exclude:
+  - README.md
+  - .gitignore
+  - LICENSE
+
+navigation:
+  - title: 首页
+    url: /
+    icon: 🏠
+  - title: 关于罗马维基
+    url: /about/
+    icon: 📜
+  - title: 罗马历史
+    url: /rome-history/
+    icon: 🏛️
+  - title: 罗马法
+    url: /roman-law/
+    icon: ⚖️
+  - title: 拉丁语
+    url: /latin-language/
+    icon: 📚

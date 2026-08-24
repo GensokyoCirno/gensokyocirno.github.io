@@ -1,0 +1,12 @@
+<aside class="sidebar">
+  <nav class="sidebar-nav">
+    <div class="nav-section">⚔️ 导航</div>
+    {% for nav in site.navigation %}
+      <a href="{{ nav.url | relative_url }}" 
+         class="{% if page.url == nav.url %}active{% endif %}">
+        <span>{{ nav.icon }}</span> {{ nav.title }}
+      </a>
+    {% endfor %}
+    <!-- ... 其他静态部分 -->
+  </nav>
+</aside>
