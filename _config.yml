@@ -34,3 +34,6 @@ navigation:
   - title: 罗马音乐
     url: /roman-music/
     icon: 🎵
+  - title: 罗马人物
+    url: /people/
+    icon: 🧑

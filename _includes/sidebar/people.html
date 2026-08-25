@@ -1,0 +1,30 @@
+<aside class="sidebar">
+  <nav class="sidebar-nav">
+    <div class="nav-section">👤 罗马人物</div>
+    <a href="{{ '/people/' | relative_url }}" 
+       class="{% if page.url == '/pages/people/' %}active{% endif %}">
+      <span>🏛️</span> 人物总览
+    </a>
+    <a href="{{ '/people/julius-caesar/' | relative_url }}" 
+       class="{% if page.url contains '/julius-caesar/' %}active{% endif %}">
+      <span>⚔️</span> 尤利乌斯·凯撒
+    </a>
+    <a href="{{ '/people/augustus/' | relative_url }}" 
+       class="{% if page.url contains '/augustus/' %}active{% endif %}">
+      <span>👑</span> 奥古斯都
+    </a>
+    <a href="{{ '/people/cicero/' | relative_url }}" 
+       class="{% if page.url contains '/cicero/' %}active{% endif %}">
+      <span>📜</span> 西塞罗
+    </a>
+
+    <div class="nav-section" style="margin-top: 18px;">⬅️ 返回</div>
+    <a href="{{ '/' | relative_url }}">
+      <span>🏠</span> 回到首页
+    </a>
+  </nav>
+  
+  <div class="sidebar-footer">
+    <span>SPQR · 人物传略</span>
+  </div>
+</aside>

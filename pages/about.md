@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: default-layout
 title: 关于罗马维基
 permalink: /about/
 ---

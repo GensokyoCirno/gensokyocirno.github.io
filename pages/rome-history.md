@@ -1,10 +1,10 @@
 ---
-layout: default
+layout: default-layout
 title: 罗马历史
 permalink: /rome-history/
 ---
 
-# 古罗马国家历史
+# 罗马历史（现实）
 
 ## 概述
 
