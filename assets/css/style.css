@@ -462,3 +462,79 @@ body {
 .sidebar-nav a:hover::before {
   opacity: 0.9;
 }
+
+/* 罗马风格表格 */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;  /* 优化iOS滚动 */
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #b78a5c;
+  background: #f7f0e6;
+}
+
+.table-responsive table {
+  width: 100%;
+  min-width: 600px;          /* 当屏幕小于此宽度时出现滚动条 */
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: transparent;
+}
+
+/* 表格基本样式（延续罗马风格） */
+.table-responsive table th,
+.table-responsive table td {
+  padding: 10px 16px;
+  border: 1px solid #b78a5c;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table-responsive table th {
+  background: #8b2f1c;
+  color: #f5e6c4;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.table-responsive table td {
+  background: #f7f0e6;
+  color: #3b2e24;
+}
+
+.table-responsive table tr:nth-child(even) td {
+  background: #ede7db;
+}
+
+/* 悬停效果（可选） */
+.table-responsive table tr:hover td {
+  background: #dac8b0;
+}
+/* ---------- 通用表格美化（可选） ---------- */
+/* 如果不想用 .table-responsive，直接给普通表格添加样式 */
+table:not(.table-responsive table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border: 1px solid #b78a5c;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table:not(.table-responsive table) th,
+table:not(.table-responsive table) td {
+  padding: 10px 16px;
+  border: 1px solid #b78a5c;
+  text-align: left;
+}
+
+table:not(.table-responsive table) th {
+  background: #8b2f1c;
+  color: #f5e6c4;
+}
+
+table:not(.table-responsive table) tr:nth-child(even) td {
+  background: #ede7db;
+}
