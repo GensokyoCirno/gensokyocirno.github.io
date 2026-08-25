@@ -464,7 +464,7 @@ body {
 }
 
 /* 罗马风格表格 */
-.table {
+table {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;  /* 优化iOS滚动 */
@@ -472,9 +472,6 @@ body {
   border-radius: 8px;
   border: 1px solid #b78a5c;
   background: #f7f0e6;
-}
-
-.table table {
   width: 100%;
   min-width: 600px;          /* 当屏幕小于此宽度时出现滚动条 */
   border-collapse: collapse;
@@ -483,15 +480,15 @@ body {
 }
 
 /* 表格基本样式（延续罗马风格） */
-.table table th,
-.table table td {
+table th,
+table td {
   padding: 10px 16px;
   border: 1px solid #b78a5c;
   text-align: left;
   vertical-align: top;
 }
 
-.table table th {
+table th {
   background: #8b2f1c;
   color: #f5e6c4;
   font-weight: 600;
@@ -499,22 +496,22 @@ body {
   white-space: nowrap;
 }
 
-.table table td {
+table td {
   background: #f7f0e6;
   color: #3b2e24;
 }
 
-.table table tr:nth-child(even) td {
+table tr:nth-child(even) td {
   background: #ede7db;
 }
 
 /* 悬停效果（可选） */
-.table table tr:hover td {
+table tr:hover td {
   background: #dac8b0;
 }
 /* ---------- 通用表格美化（可选） ---------- */
 /* 如果不想用 .table，直接给普通表格添加样式 */
-table:not(.table table) {
+/*table:not(.table table) {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
@@ -537,4 +534,4 @@ table:not(.table table) th {
 
 table:not(.table table) tr:nth-child(even) td {
   background: #ede7db;
-}
+}*/
