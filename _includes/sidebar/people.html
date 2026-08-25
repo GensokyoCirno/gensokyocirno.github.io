@@ -7,6 +7,7 @@
         <span>{{ nav.icon }}</span> {{ nav.title }}: {{page.url}}
       </a>
     {% endfor %}
+    <p>{{'/' + nav.url}}</p>
 <!--
     <a href="{{ '/people/' | relative_url }}" 
        class="{% if page.url == '/people/' %}active{% endif %}">
