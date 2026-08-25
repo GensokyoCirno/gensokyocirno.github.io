@@ -37,3 +37,18 @@ navigation:
   - title: 罗马人物
     url: /people/
     icon: 🧑
+
+## 注意这些url前面不能带/
+navigation_people:
+  - title: 人物总览
+    url: people/
+    icon: 🏛️
+  - title: 尤利乌斯·凯撒
+    url: people/julius-caesar/
+    icon: ⚔️
+  - title: 奥古斯都
+    url: people/augustus/
+    icon: 👑
+  - title: 西塞罗
+    url: people/cicero/
+    icon: 📜

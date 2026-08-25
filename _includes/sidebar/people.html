@@ -1,6 +1,13 @@
 <aside class="sidebar">
   <nav class="sidebar-nav">
     <div class="nav-section">👤 罗马人物</div>
+    {% for nav in site.navigation_people %}
+      <a href="{{ '/people/' + nav.url | relative_url }}" 
+         class="{% if page.url == nav.url %}active{% endif %}">
+        <span>{{ nav.icon }}</span> {{ nav.title }}
+      </a>
+    {% endfor %}
+<!--
     <a href="{{ '/people/' | relative_url }}" 
        class="{% if page.url == '/people/' %}active{% endif %}">
       <span>🏛️</span> 人物总览
@@ -22,6 +29,7 @@
     <a href="{{ '/' | relative_url }}">
       <span>🏠</span> 回到首页
     </a>
+-->
   </nav>
   
   <div class="sidebar-footer">
