@@ -3,9 +3,8 @@
     <div class="nav-section">👤 罗马人物</div>
     {% for nav in site.navigation_people %}
       <a href="{{ '/people/' + nav.url | relative_url }}" 
-         class="{% if page.url == '/' + nav.url %}active{% endif %}">
-        <span>{{ nav.icon }}</span> {{ nav.title }}: {{page.url}}
-        <p>{{'/' + nav.url}}</p>
+         class="{% if page.url contains nav.url %}active{% endif %}">
+        <span>{{ nav.icon }}</span> {{ nav.title }}
       </a>
     {% endfor %}
     

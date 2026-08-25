@@ -38,7 +38,8 @@ navigation:
     url: /people/
     icon: 🧑
 
-## 注意这些url前面不能带/
+# 注意这些url前面不能带/
+
 navigation_people:
   - title: 人物总览
     url: people/
