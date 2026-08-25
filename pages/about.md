@@ -16,6 +16,8 @@ permalink: /about/
 
 ## 制作组
 
+负责人：*GensokyoCirno*
+
 技术：*GensokyoCirno*
 
 ## 报刊成员

@@ -31,3 +31,6 @@ navigation:
   - title: 拉丁语
     url: /latin-language/
     icon: 📚
+  - title: 罗马音乐
+    url: /roman-music/
+    icon: 🎵
