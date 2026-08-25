@@ -7,6 +7,7 @@
         <span>{{ nav.icon }}</span> {{ nav.title }}: {{nav.url | relative_url}}
       </a>
     {% endfor %}
+    <p>{{page.url}}</p>
     
 <!--
     <a href="{{ '/people/' | relative_url }}" 
