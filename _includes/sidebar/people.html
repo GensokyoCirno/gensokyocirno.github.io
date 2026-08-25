@@ -4,7 +4,7 @@
     {% for nav in site.navigation_people %}
       <a href="{{ '/people/' + nav.url | relative_url }}" 
          class="{% if page.url == '/' + nav.url %}active{% endif %}">
-        <span>{{ nav.icon }}</span> {{ nav.title }}
+        <span>{{ nav.icon }}</span> {{ nav.title }}: {{page.url}}
       </a>
     {% endfor %}
 <!--
