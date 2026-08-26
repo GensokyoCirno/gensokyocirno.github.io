@@ -1,6 +1,7 @@
 ---
 layout: default-layout
 title: 隐藏页面
+permalink: /hidden/
 ---
 
 # 🏛️ 罗马维基 · 固定布局
