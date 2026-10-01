@@ -419,7 +419,159 @@ body {
   border-top: 2px dotted #b78a5c;
   margin: 36px 0;
 }
+/* ============================================================
+   响应式适配（重点改进移动端标题栏）
+   ============================================================ */
 
+/* ---------- 桌面端：默认显示完整标语 ---------- */
+.slogan-short {
+  display: none;
+}
+
+/* ---------- 平板 / 手机（≤ 780px） ---------- */
+@media (max-width: 780px) {
+  /* 标题栏整体 */
+  .header {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  /* 左侧标题 */
+  .header h1 {
+    font-size: 1.25rem;
+  }
+
+  .header h1 small {
+    display: none;
+  }
+
+  /* 切换按钮 */
+  .sidebar-toggle {
+    width: 36px;
+    height: 36px;
+    font-size: 1.15rem;
+  }
+
+  /* ---------- 中间标语：放大、切换为中文 ---------- */
+  .header-center {
+    flex: 1;
+    max-width: none;
+    font-size: 0.95rem;
+    padding: 6px 14px;
+    margin: 0 8px;
+    letter-spacing: 0.4px;
+    background: #6f2a1a;
+    border-color: #b78a5c;
+  }
+
+  /* 移动端显示中文标语，隐藏希腊文 */
+  .slogan-full {
+    display: none;
+  }
+  .slogan-short {
+    display: inline;
+  }
+
+  /* ---------- 右侧按钮：加大尺寸 ---------- */
+  .header-right {
+    gap: 8px;
+  }
+
+  .btn-wiki {
+    padding: 0;
+    font-size: 0.95rem;
+    min-width: 38px;
+    height: 38px;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  /* 手机端隐藏按钮文字，仅显示图标 */
+  .btn-copy .copy-text,
+  .btn-home .home-text {
+    display: none;
+  }
+
+  /* 图标放大 */
+  .btn-wiki i {
+    font-size: 1.15rem;
+    opacity: 1;
+  }
+
+  /* 隐藏标题栏装饰 */
+  .header::after {
+    display: none;
+  }
+}
+
+/* ---------- 手机（≤ 480px） ---------- */
+@media (max-width: 480px) {
+  .header {
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .header h1 {
+    font-size: 1.05rem;
+  }
+
+  /* 进一步优化标语 */
+  .header-center {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    margin: 0 4px;
+    letter-spacing: 0.2px;
+  }
+
+  /* 按钮尺寸稍作调整，但保持可点击面积 */
+  .btn-wiki {
+    min-width: 36px;
+    height: 36px;
+  }
+
+  .btn-wiki i {
+    font-size: 1.1rem;
+  }
+
+  .sidebar-toggle {
+    width: 34px;
+    height: 34px;
+    font-size: 1.05rem;
+  }
+}
+
+/* ---------- 极小屏幕（≤ 360px，如 iPhone SE） ---------- */
+@media (max-width: 360px) {
+  .header {
+    padding: 0 6px;
+    gap: 4px;
+  }
+
+  .header h1 {
+    font-size: 0.95rem;
+  }
+
+  .header-center {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    letter-spacing: 0;
+  }
+
+  .btn-wiki {
+    min-width: 34px;
+    height: 34px;
+  }
+
+  .btn-wiki i {
+    font-size: 1rem;
+  }
+
+  .sidebar-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}
 /* ============================================================
    侧边栏切换按钮（简约风格）
    ============================================================ */
