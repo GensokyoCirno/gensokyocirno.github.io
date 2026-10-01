@@ -422,9 +422,6 @@ body {
 /* ============================================================
    响应式适配（重点改进移动端标题栏）
    ============================================================ */
-
-/* ---------- 桌面端：默认显示完整标语 ---------- */
-
 /* ---------- 平板 / 手机（≤ 780px） ---------- */
 @media (max-width: 780px) {
   /* 标题栏整体 */
@@ -449,24 +446,8 @@ body {
     font-size: 1.15rem;
   }
 
-  /* ---------- 中间标语：放大、切换为中文 ---------- */
   .header-center {
-    flex: 1;
-    max-width: none;
-    font-size: 0.95rem;
-    padding: 6px 14px;
-    margin: 0 8px;
-    letter-spacing: 0.4px;
-    background: #6f2a1a;
-    border-color: #b78a5c;
-  }
-
-  /* 移动端显示中文标语，隐藏希腊文 */
-  .slogan-full {
     display: none !important;
-  }
-  .slogan-short {
-    display: inline;
   }
 
   /* ---------- 右侧按钮：加大尺寸 ---------- */
@@ -519,10 +500,7 @@ body {
 
   /* 进一步优化标语 */
   .header-center {
-    font-size: 0.85rem;
-    padding: 5px 10px;
-    margin: 0 4px;
-    letter-spacing: 0.2px;
+    display: none !important;
   }
 
   /* 按钮尺寸稍作调整，但保持可点击面积 */
@@ -554,9 +532,7 @@ body {
   }
 
   .header-center {
-    font-size: 0.75rem;
-    padding: 4px 8px;
-    letter-spacing: 0;
+    display: none !important;   
   }
 
   .btn-wiki {
@@ -803,12 +779,6 @@ body {
 /* 桌面端：保持原有网格布局 */
 @media (min-width: 781px) {
   .sidebar-overlay {
-    display: none !important;
-  }
-  .sidebar-toggle {
-    display: none !important;
-  }
-  .slogan-short {
     display: none !important;
   }
 }
