@@ -3,73 +3,101 @@
    ============================================ */
 
 (function() {
-  'use strict';
-
   // ============================================
-  // 1. 侧边栏切换功能（保持不变）
-  // ============================================
-  function initSidebarToggle() {
-    const toggleBtn = document.getElementById('sidebarToggle');
-    const wikiGrid = document.querySelector('.wiki-grid');
-    
-    if (!toggleBtn || !wikiGrid) return;
+// 1. 侧边栏切换功能（桌面收缩 + 移动滑出）
+// ============================================
+function initSidebarToggle() {
+  const toggleBtn = document.getElementById('sidebarToggle');
+  const wikiGrid = document.querySelector('.wiki-grid');
+  const overlay = document.getElementById('sidebarOverlay');
 
-    const isMobile = () => window.innerWidth <= 780;
+  if (!toggleBtn || !wikiGrid) return;
 
+  const isMobile = () => window.innerWidth <= 780;
+
+  // 初始化：桌面端根据偏好，移动端默认关闭
+  if (isMobile()) {
+    wikiGrid.classList.remove('sidebar-open');
+  }
+
+  // 切换侧边栏
+  function toggleSidebar() {
     if (isMobile()) {
-      wikiGrid.classList.add('sidebar-collapsed');
-    }
-
-    function toggleSidebar() {
+      // 移动端：切换 sidebar-open 类
+      wikiGrid.classList.toggle('sidebar-open');
+    } else {
+      // 桌面端：切换 sidebar-collapsed 类（原有逻辑）
       wikiGrid.classList.toggle('sidebar-collapsed');
       const isCollapsed = wikiGrid.classList.contains('sidebar-collapsed');
       try {
         localStorage.setItem('sidebarCollapsed', isCollapsed);
       } catch (e) {}
     }
+  }
 
-    toggleBtn.addEventListener('click', toggleSidebar);
+  // 点击按钮
+  toggleBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleSidebar();
+  });
 
-    document.addEventListener('click', function(e) {
-      if (isMobile() && !wikiGrid.classList.contains('sidebar-collapsed')) {
-        const sidebar = document.querySelector('.sidebar');
-        const toggle = document.getElementById('sidebarToggle');
-        
-        if (sidebar && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
-          wikiGrid.classList.add('sidebar-collapsed');
-        }
-      }
+  // 点击遮罩关闭（移动端）
+  if (overlay) {
+    overlay.addEventListener('click', function() {
+      wikiGrid.classList.remove('sidebar-open');
     });
+  }
 
-    let resizeTimer;
-    window.addEventListener('resize', function() {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function() {
-        const mobile = isMobile();
-        const collapsed = wikiGrid.classList.contains('sidebar-collapsed');
-        
-        if (mobile && !collapsed) {
-          wikiGrid.classList.add('sidebar-collapsed');
-        }
-        if (!mobile && collapsed) {
-          let saved = null;
-          try { saved = localStorage.getItem('sidebarCollapsed'); } catch (e) {}
-          if (saved !== 'true') {
+  // 点击侧边栏外区域关闭（移动端）
+  document.addEventListener('click', function(e) {
+    if (isMobile() && wikiGrid.classList.contains('sidebar-open')) {
+      const sidebar = document.querySelector('.sidebar');
+      const toggle = document.getElementById('sidebarToggle');
+
+      if (sidebar && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+        wikiGrid.classList.remove('sidebar-open');
+      }
+    }
+  });
+
+  // 窗口大小变化时重置状态
+  let resizeTimer;
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function() {
+      const mobile = isMobile();
+
+      if (!mobile) {
+        // 切换到桌面时，关闭移动端的滑出状态
+        wikiGrid.classList.remove('sidebar-open');
+
+        // 恢复桌面端偏好
+        try {
+          const saved = localStorage.getItem('sidebarCollapsed');
+          if (saved === 'true') {
+            wikiGrid.classList.add('sidebar-collapsed');
+          } else {
             wikiGrid.classList.remove('sidebar-collapsed');
           }
-        }
-      }, 300);
-    });
+        } catch (e) {}
+      } else {
+        // 切换到移动端时，移除桌面的收起状态
+        wikiGrid.classList.remove('sidebar-collapsed');
+        wikiGrid.classList.remove('sidebar-open');
+      }
+    }, 200);
+  });
 
+  // 恢复桌面端用户偏好
+  if (!isMobile()) {
     try {
       const savedState = localStorage.getItem('sidebarCollapsed');
       if (savedState === 'true') {
         wikiGrid.classList.add('sidebar-collapsed');
-      } else if (savedState === 'false') {
-        wikiGrid.classList.remove('sidebar-collapsed');
       }
     } catch (e) {}
   }
+}
 
 // ============================================
 // 2. 复制网址功能（按钮变色反馈）

@@ -420,26 +420,158 @@ body {
   margin: 36px 0;
 }
 
-/* ---- 响应式 ---- */
+/* ============================================================
+   侧边栏切换按钮（简约风格）
+   ============================================================ */
+
+.sidebar-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgba(245, 230, 196, 0.35);
+  border-radius: 8px;
+  color: #f5e6c4;
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 汉堡图标 */
+.sidebar-toggle .hamburger-icon {
+  display: block;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+/* ---------- 悬停 ---------- */
+.sidebar-toggle:hover {
+  background: rgba(245, 230, 196, 0.15);
+  border-color: rgba(245, 230, 196, 0.6);
+  color: #fff3e0;
+}
+
+/* ---------- 按下 ---------- */
+.sidebar-toggle:active {
+  background: rgba(245, 230, 196, 0.25);
+}
+
+/* ---------- 焦点（键盘无障碍） ---------- */
+.sidebar-toggle:focus-visible {
+  outline: 2px solid rgba(245, 230, 196, 0.7);
+  outline-offset: 2px;
+}
+
+/* ---------- 侧边栏打开时（视觉提示） ---------- */
+.wiki-grid.sidebar-open .sidebar-toggle .hamburger-icon {
+  transform: rotate(90deg);
+}
+
+/* ---------- 移动端适配 ---------- */
 @media (max-width: 780px) {
+  .sidebar-toggle {
+    width: 34px;
+    height: 34px;
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-toggle {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}
+/* ---- 响应式 ---- */
+/* ============================================================
+   移动端侧边栏（覆盖式滑出）
+   ============================================================ */
+
+@media (max-width: 780px) {
+  /* 网格：正文始终占满，侧边栏脱离文档流 */
   .wiki-grid {
     grid-template-columns: 1fr;
     grid-template-rows: 68px 1fr;
+    position: relative;
   }
+
+  /* 侧边栏：固定定位，从左侧滑出 */
   .sidebar {
-    display: none;
+    position: fixed;
+    top: 68px;                    /* 标题栏下方 */
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 68px);
+    z-index: 20;
+    transform: translateX(-100%); /* 默认隐藏在屏幕外 */
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 4px 0 16px rgba(60, 40, 20, 0.25);
+    opacity: 1;
+    pointer-events: auto;
+    padding: 24px 16px;
+    border-right: 2px solid #b78a5c;
   }
+
+  /* 侧边栏打开状态 */
+  .wiki-grid.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+
+  /* 正文：始终占满整行 */
   .main-content {
-    grid-column: 1 / 2;
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
     padding: 24px 20px 40px 20px;
   }
-  .header h1 small {
-    display: none;
+
+  /* 遮罩层 */
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 68px);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 15;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
   }
+
+  /* 遮罩层激活 */
+  .wiki-grid.sidebar-open .sidebar-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* 确保切换按钮在移动端显示 */
+  .sidebar-toggle {
+    display: flex !important;
+  }
+
+  /* 标题栏适配 */
   .header {
     padding: 0 16px;
     flex-wrap: nowrap;
+    gap: 6px;
   }
+
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  .header h1 small {
+    display: none;
+  }
+
   .header-center {
     max-width: 160px;
     font-size: 0.85rem;
@@ -447,15 +579,82 @@ body {
     margin: 0 8px;
     letter-spacing: 0.4px;
   }
-  .btn-wiki {
-    padding: 4px 12px;
-    font-size: 0.7rem;
+
+  .header::after {
+    display: none;
   }
-  .header h1 {
-    font-size: 1.3rem;
+
+  /* 按钮精简 */
+  .btn-wiki {
+    padding: 5px 14px;
+    font-size: 0.75rem;
+  }
+
+  .btn-copy .copy-text,
+  .btn-home .home-text {
+    display: none;
+  }
+
+  .btn-copy,
+  .btn-home {
+    padding: 4px 10px;
+  }
+
+  .sidebar-toggle {
+    width: 34px;
+    height: 34px;
+    font-size: 1.2rem;
   }
 }
 
+/* 手机（≤ 480px） */
+@media (max-width: 480px) {
+  .header {
+    gap: 4px;
+    padding: 0 10px;
+  }
+
+  .header h1 {
+    font-size: 1.0rem;
+  }
+
+  .header-center {
+    max-width: 100px;
+    font-size: 0.7rem;
+    padding: 2px 8px;
+  }
+
+  .btn-wiki {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+  }
+
+  .btn-copy,
+  .btn-home {
+    padding: 3px 8px;
+  }
+
+  .sidebar-toggle {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  /* 侧边栏宽度略窄 */
+  .sidebar {
+    width: 240px;
+  }
+}
+
+/* 桌面端：保持原有网格布局 */
+@media (min-width: 781px) {
+  .sidebar-overlay {
+    display: none !important;
+  }
+  .sidebar-toggle {
+    display: none !important;
+  }
+}
 @media (max-width: 480px) {
   .header-center {
     max-width: 100px;
