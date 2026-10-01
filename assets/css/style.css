@@ -466,12 +466,6 @@ body {
     gap: 0;                    /* 取消间距 */
   }
 
-  /* 隐藏文字 */
-  .btn-copy .copy-text,
-  .btn-home .home-text {
-    display: none;
-  }
-
   /* 图标居中 */
   .btn-wiki i {
     display: flex;
@@ -779,6 +773,9 @@ body {
 /* 桌面端：保持原有网格布局 */
 @media (min-width: 781px) {
   .sidebar-overlay {
+    display: none !important;
+  }
+  .sidebar-toggle {
     display: none !important;
   }
 }
