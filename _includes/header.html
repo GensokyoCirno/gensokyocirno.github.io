@@ -11,11 +11,14 @@
   </div>
 
   <div class="header-right">
-    <span class="btn-wiki" role="button">
-      <i>⚡</i> 编辑
-    </span>
-    <span class="btn-wiki primary" role="button">
-      <i>🏛️</i> 收藏
-    </span>
+    <!-- 复制网址按钮 -->
+    <button class="btn-wiki btn-copy" id="copyUrlBtn" role="button" aria-label="复制当前页面网址">
+      <i>🔗</i> <span class="copy-text">复制网址</span>
+    </button>
+    
+    <!-- 回到首页按钮 -->
+    <button class="btn-wiki btn-home" id="homeBtn" role="button" aria-label="回到首页" onclick="window.location.href='{{ '/' | relative_url }}'">
+      <i>🏠</i> <span class="home-text">回到首页</span>
+    </button>
   </div>
 </header>

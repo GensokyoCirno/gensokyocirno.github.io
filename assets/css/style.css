@@ -151,7 +151,58 @@ body {
   border-color: #dbb68c;
   color: #fff3e0;
 }
+/* ============================================================
+   复制网址按钮（带状态反馈）
+   ============================================================ */
 
+.btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.3s ease, border-color 0.3s ease,
+              color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-copy i {
+  font-style: normal;
+  transition: transform 0.3s ease;
+}
+
+.btn-copy:hover i {
+  transform: scale(1.15);
+}
+
+/* ---------- 复制成功状态（绿色） ---------- */
+.btn-copy.copied {
+  background: #95c241;              /* 罗马橄榄绿 */
+  border-color: #c4d69c;
+  color: #2e3a1a;
+  box-shadow: 0 2px 8px rgba(77, 94, 46, 0.4);
+}
+
+.btn-copy.copied:hover {
+  background: #5a6d37;
+  border-color: #a3bc6e;
+  color: #fff3e0;
+}
+
+.btn-copy.copied i {
+  transform: scale(1.15);
+}
+
+/* ---------- 复制失败状态（红棕色） ---------- */
+.btn-copy.copy-failed {
+  background: #a53d26;
+  border-color: #c44d33;
+  color: #f5e6c4;
+  box-shadow: 0 2px 8px rgba(165, 61, 38, 0.4);
+}
+
+.btn-copy.copy-failed:hover {
+  background: #bf4a32;
+  border-color: #d66048;
+  color: #fff3e0;
+}
 /* ---- 侧边栏 (罗马风格) ---- */
 .sidebar {
   grid-column: 1 / 2;

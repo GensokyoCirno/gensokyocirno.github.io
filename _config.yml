@@ -2,7 +2,7 @@
 title: 维护中！
 description: 固定布局的罗马风格维基
 baseurl: ""  # 如果部署到子目录，如 /blog，则填写 "/blog"
-url: "https://gensokyocirno.github.io"  # 你的 GitHub Pages 地址
+url: ""  # 你的 GitHub Pages 地址
 
 # 主题设置（这里我们使用自定义主题）
 theme: null
@@ -35,7 +35,7 @@ navigation:
     url: /roman-music/
     icon: 🎵
   - title: 罗马人物
-    url: /people/
+    url: /people/home/
     icon: 🧑
   - title: 隐藏页面
     url: /hidden/
@@ -45,14 +45,14 @@ navigation:
 
 navigation_people:
   - title: 人物总览
-    url: people/
+    url: /people/home/
     icon: 🏛️
   - title: 尤利乌斯·凯撒
-    url: people/julius-caesar/
+    url: /people/julius-caesar/
     icon: ⚔️
   - title: 奥古斯都
-    url: people/augustus/
+    url: /people/augustus/
     icon: 👑
   - title: 西塞罗
-    url: people/cicero/
+    url: /people/cicero/
     icon: 📜
