@@ -1,7 +1,7 @@
 <aside class="sidebar">
   <nav class="sidebar-nav">
-    <div class="nav-section">🧑 罗马人物</div>
-    {% for nav in site.navigation_people %}
+    <div class="nav-section">📰 新闻报刊</div>
+    {% for nav in site.navigation_news %}
       <a href="{{ nav.url | relative_url }}" 
          class="{% if page.url == nav.url %}active{% endif %}">
         <span>{{ nav.icon }}</span> {{ nav.title }}
@@ -12,6 +12,6 @@
       <span>🏠</span> 回到首页
     </a>
   <div class="sidebar-footer">
-    <span>SPQR · 人物传略</span>
+    <span>SPQR · 新闻报刊</span>
   </div>
 </aside>

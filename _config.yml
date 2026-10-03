@@ -19,27 +19,38 @@ navigation:
   - title: 首页
     url: /
     icon: 🏠
-  - title: 关于罗马维基
-    url: /about/
-    icon: 📜
-  - title: 罗马历史
-    url: /rome-history/
+  - title: 国家介绍
+    url: /introduction/
     icon: 🏛️
-  - title: 罗马法
-    url: /roman-law/
-    icon: ⚖️
-  - title: 拉丁语
-    url: /latin-language/
-    icon: 📚
-  - title: 罗马音乐
-    url: /roman-music/
-    icon: 🎵
+  - title: 新闻报刊
+    url: /news/home/
+    icon: 📰
+  - title: 罗马历史
+    url: /history/
+    icon: 📜
   - title: 罗马人物
     url: /people/home/
     icon: 🧑
+  - title: 罗马音乐
+    url: /music/
+    icon: 🎵
+  - title: 关于
+    url: /about/
+    icon: ℹ️
   - title: 隐藏页面
     url: /hidden/
     icon: 😃
+
+navigation_news:
+  - title: 新闻&报刊总览
+    url: /news/home/
+    icon: 📰
+  - title: 罗马人民报
+    url: /news/peoples-newspaper/
+    icon: 🗞️
+  - title: 罗马联合速报
+    url: /news/united-express/
+    icon: 🗞️
 
 navigation_people:
   - title: 人物总览

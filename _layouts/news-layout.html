@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <title>{% if page.title %}{{ page.title }} · {% endif %}新闻报刊 · {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="icon" href="/icon.ico">
 </head>
@@ -13,7 +13,7 @@
     {% include header.html %}
     
     <!-- 侧边栏 -->
-    {% include sidebar/default.html %}
+    {% include sidebar/news.html %}
     
     <!-- 移动端遮罩层 -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>

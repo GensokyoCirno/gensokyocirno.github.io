@@ -137,6 +137,10 @@ body {
   font-style: normal;
   opacity: 0.8;
   margin-right: 4px;
+  font-style: normal;
+}
+.btn-wiki i:hover {
+  transform: scale(1.15);
 }
 
 .btn-wiki.primary {
